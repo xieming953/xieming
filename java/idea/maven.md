@@ -1,17 +1,47 @@
-## 下载依赖太慢需要修改mirror配置
+**maven依赖查找地址**：https://maven.aliyun.com/mvn/search
 
-idea -> preference -> user setting file
+##  用idea构建maven web项目
 
-![image-20200927233324247](../../图片/java/maven_setting_addr.png)
+- 选择webapp模版构建
 
-```xml
-<mirror>
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <mirrorOf>central</mirrorOf>        
-</mirror>
-```
+  ![image-20200928143918756](../../图片/java/image-20200928143918756.png)
+
+- 需要修改settings.xml的镜像地址（国外的下载太慢）
+
+  ![image-20200928144159976](../../图片/java/image-20200928144159976.png)
+
+  ```xml
+  <mirror>
+        <id>alimaven</id>
+        <name>aliyun maven</name>
+  <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        <mirrorOf>central</mirrorOf>        
+  </mirror>
+  ```
+
+- 设置项目结构
+
+  ![image-20200928144428509](../../图片/java/image-20200928144428509.png)
+
+  - 项目的jdk版本需要保持一致
+
+    ![image-20200928144611568](../../图片/java/image-20200928144611568.png)
+
+  - 参照maven约定构建项目路径
+
+    ![image-20200928145215575](/Users/xieming1/github/xieming/图片/java/image-20200928145051840.png)
+
+  - 增加facets
+
+    ![image-20200928150954955](../../图片/java/image-20200928150954955.png)
+
+  - 增加artifacts
+
+    ![image-20200928151207924](../../图片/java/image-20200928151207924.png)
+
+  - 配置tomcat，将项目部署到tomcat
+
+    ![image-20200928153406172](../../图片/java/image-20200928153406172.png)
 
 ## 约定配置
 
