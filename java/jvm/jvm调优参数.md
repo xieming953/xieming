@@ -1,3 +1,19 @@
+<center><strong>java常用参数</strong></center>
+
+[jvm内存调优常用参数](##jvm内存调优常用参数)
+
+- [堆设置](###堆设置)
+- [收集器设置](###收集器设置)
+- [垃圾回收统计信息](###垃圾回收统计信息)
+- [并行收集器设置](###并行收集器设置)
+- [jvm常用命令](###jvm常用命令)
+
+
+
+
+
+<hr>
+
 ## jvm内存调优常用参数
 
 ### 堆设置 
@@ -35,4 +51,19 @@
 - **-XX:ParallelGCThreads=n**: 设置并发收集器年轻代收集方式为并行收集时,使用的CPU数.并行收集线程数.
 - **-XX:MaxTenuringThreshold=0**: *设置垃圾最大年龄*。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。对于年老代比较多的应用，可以提高效率；如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活 时间，增加在年轻代即被回收的概论。
 - **-XX:PretenureSizeThreshold**：大于这个值的参数直接在老年代分配，eg：XX:PretenureSizeThreshold=3145728设置3m。默认值为0，即所有的对象现在eden区分配内存
+
+### jvm常用命令
+
+- **jps**：虚拟机进程状况
+- **jstat：**jvm运行状态信息参数统计，eg: stat -gc
+
+- **jinfo:** jvm查看和调整配置信息
+
+- **jmap:** jvm生成堆转储快照，eg：jmap -dump, jmap -heap, jmap -finalizeinfo
+
+- **jhat：**jvm堆转储快照分析，eg: jhat file
+
+- **jstack: **生成jvm当前时刻的线程快照，eg: -F 强制输出，-l 输出关于锁的附加信息，-m 显示本地方法栈信息
+
+- **hsdis：**生成代码反汇编
 
